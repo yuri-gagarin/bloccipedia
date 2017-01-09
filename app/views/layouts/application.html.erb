@@ -9,6 +9,34 @@
   </head>
 
   <body>
+	<nav role="navigation" class="navbar navbar-inverse">
+	    <div class="navbar-header">
+	        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	        </button>
+	        <a href="#" class="navbar-brand">Bloccipedia</a>
+	    </div>
+	    <div id="navbarCollapse" class="collapse navbar-collapse">
+	        <ul class="nav navbar-nav">
+	            <li class="active"><a href="#">Home</a></li>
+	            <li><a href="#">Profile</a></li>
+	            <li class="dropdown">
+	                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Topics <b class="caret"></b></a>
+	                <ul role="menu" class="dropdown-menu">
+	                    <li><a href="#">Topic 1</a></li>
+	                    <li><a href="#">Topic 2</a></li>
+	                    <li><a href="#">Topic 3</a></li>
+	                </ul>
+	            </li>
+	        </ul>
+	        <ul class="nav navbar-nav navbar-right">
+	            <li><a href="#">Login</a></li>
+	        </ul>
+	    </div>
+	</nav>
     <%= yield %>
   </body>
 </html>
