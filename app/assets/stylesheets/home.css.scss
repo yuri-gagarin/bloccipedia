@@ -1,0 +1,17 @@
+body {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.jumbotron {
+	background-image: asset-data-url('jumbotron.jpg');
+	background-size: cover;
+
+	h1 {
+		margin-left: 25px;
+	}
+	p {
+		margin-left: 50px;
+	}
+
+}

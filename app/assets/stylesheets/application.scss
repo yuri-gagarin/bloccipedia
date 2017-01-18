@@ -13,13 +13,4 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-.jumbotron {
-	margin: 10px 10px 10px 10px;
-	padding-left: 30px;
-}
-
-
-.index-info {
-	margin: 10px 10px 10px 10px;
-}
+@import "home";
