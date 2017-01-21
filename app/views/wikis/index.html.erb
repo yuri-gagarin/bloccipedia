@@ -1,0 +1,10 @@
+<div class="row">
+  <% @wikis.each do |wiki| %>
+    <div class="well">
+        <div class="col-xs-6 col-sm-3 col-md-2">
+            <p><%= wiki.title %></p>
+            <p><%= wiki.body %></p>
+        </div>
+    </div>
+  <% end %>
+</div>
