@@ -17,11 +17,11 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	        </button>
-	        <a href="#" class="navbar-brand">Bloccipedia</a>
+	        <%= link_to 'Bloccipedia', root_path, class: "navbar-brand" %>
 	    </div>
 	    <div id="navbarCollapse" class="collapse navbar-collapse">
 	        <ul class="nav navbar-nav">
-	            <li class="active"><%= link_to 'Home', root_path %></li>
+	            <li class="active"><%= link_to 'All Wikis', wikis_path %></li>
 	            <li class="dropdown">
 	                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Topics <b class="caret"></b></a>
 	                <ul role="menu" class="dropdown-menu">
@@ -35,6 +35,7 @@
 	                <ul role="menu" class="dropdown-menu">
 	                    <li><a href="#">My Topics</a></li>
 	                    <li><a href="#">My Articles</a></li>
+                      <li><a href="/wikis/new">Create a Wiki<a></li>
 	                	<br>
 	                    <li><%= link_to 'Edit Profile', edit_user_registration_path %></a></li>
 	                </ul>
@@ -59,8 +60,9 @@
 	<div class='alert alert-danger alert dismissable'>
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     	<p><%= alert %></p>
-    </div>
+  </div>
     <% end %>
+
     <%= yield %>
   </body>
 </html>

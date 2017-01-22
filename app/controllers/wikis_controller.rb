@@ -1,4 +1,7 @@
 class WikisController < ApplicationController
+
+  before_action :authenticate_user!, except: :index
+
   def index
     @wikis = Wiki.all
   end
@@ -8,11 +11,19 @@ class WikisController < ApplicationController
   end
 
   def new
-    @wiki = Wiki.new
+    @wiki = current_user.wikis.build
   end
 
   def create
-    @wiki = Wiki.new(wiki_params)
+    @wiki = current_user.wikis.new(wiki_params)
+
+    if @wiki.save
+      flash[:notice] = 'Your Wiki was saved'
+      redirect_to(wikis_path)
+    else
+      flash[:alert] = 'There was a problem saving your Wiki. Try again!'
+      render(:new)
+    end
   end
 
   def edit
@@ -20,9 +31,42 @@ class WikisController < ApplicationController
   end
 
   def update
-    @wiki = Wike.find(params[:id])
+    @wiki = Wiki.find(params[:id])
+    @wiki.assign_attributes(wiki_params)
+
+    if @wiki.save
+      flash[:notice] = 'Your wiki was updated'
+      redirect_to(wiki_path(@wiki))
+    else
+      flash[:alert] = 'Error in updating your wiki'
+      render(:edit)
+    end
+  end
+
+  def delete
+
+    @wiki =  Wiki.find(params[:id])
+
   end
 
   def destroy
+
+    @wiki = Wiki.find(params[:id])
+
+    if @wiki.destroy
+      flash[:notice] = 'Your wiki has been deleted'
+      redirect_to(wikis_path)
+    else
+      flash[:alert] = 'Error in deleting the wiki please try again'
+      render(:delete)
+    end
   end
+
+
+  private
+
+  def wiki_params
+    params.require(:wiki).permit(:title, :body, :category, :private)
+  end
+
 end

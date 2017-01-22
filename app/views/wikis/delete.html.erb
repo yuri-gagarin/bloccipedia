@@ -1,0 +1,11 @@
+<div class='container'>
+  <h3>Delete <strong><%= @wiki.title %></strong></h3>
+    <%= form_for @wiki, url: wiki_path(@wiki), method: 'delete' do |f| %>
+      <h4>Are you sure you want to delete this wiki?</h4>
+        <h5><%= f.object.title %></h5>
+          <p><%= f.object.body %></p>
+          <p><%= f.object.created_at %></p>
+
+        <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+    <% end %>
+</div>

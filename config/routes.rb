@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
 
-  resources :wikis
+  get 'users/index'
+
+  get 'users/delete'
+
+  get 'users/destroy'
+
+  resources :wikis do
+    member do
+      get :delete
+    end
+  end
 
   devise_for :users
 
