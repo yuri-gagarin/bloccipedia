@@ -1,2 +1,21 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Email</th>
+      <th>Last Sign In</th>
+      <th>Sign in Count
+    </tr>
+  </thead>
+  <% @users.each do |user|%>
+  <tbody>
+    <tr>
+      <th scope="row">*</th>
+      <td><%= user.email %></td>
+      <td><%= user.last_sign_in_at %></td>
+      <td><%= user.sign_in_count %></td>
+      <td><%= button_to 'Show', user_show_path(user), class: "btn btn-info", method: :get %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

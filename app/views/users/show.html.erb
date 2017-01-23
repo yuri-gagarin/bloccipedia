@@ -1,0 +1,32 @@
+<div class='container user-container'>
+  <h2>User: <%=@user.email %></h2>
+  <table class="table table-bordered">
+    <thead class="thead-inverse">
+      <tr>
+        <th class='col-md-4'>Sign In Count</th>
+        <th class='col-md-4'>Last Sign In</th>
+        <th class='col-md-4'>Last Sign In IP</th>
+      </tr>
+    </thead>
+    <tr>
+        <td><%= @user.sign_in_count %></td>
+        <td><%= @user.last_sign_in_at %></td>
+        <td><%= @user.last_sign_in_ip %></td>
+    </tr>
+  </table>
+
+  <table class="table table-bordered">
+    <thead class="thead-inverse">
+      <tr>
+        <th class= 'col-md-4'>Created At</th>
+        <th class= 'col-md-4'>Confirmed At</th>
+        <th class= 'col-md-4'>Updated At</th>
+      </tr>
+    </thead>
+    <tr>
+        <td><%= @user.created_at %></td>
+        <td><%= @user.confirmed_at %></td>
+        <td><%= @user.updated_at %></td>
+    </tr>
+  </table>
+</div>

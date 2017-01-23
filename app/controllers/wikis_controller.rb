@@ -38,7 +38,7 @@ class WikisController < ApplicationController
       flash[:notice] = 'Your wiki was updated'
       redirect_to(wiki_path(@wiki))
     else
-      flash[:alert] = 'Error in updating your wiki'
+      flash.now[:alert] = 'Error in updating your wiki'
       render(:edit)
     end
   end
@@ -57,7 +57,7 @@ class WikisController < ApplicationController
       flash[:notice] = 'Your wiki has been deleted'
       redirect_to(wikis_path)
     else
-      flash[:alert] = 'Error in deleting the wiki please try again'
+      flash.now[:alert] = 'Error in deleting the wiki please try again'
       render(:delete)
     end
   end

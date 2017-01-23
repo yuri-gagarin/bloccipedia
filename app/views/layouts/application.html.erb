@@ -37,7 +37,7 @@
 	                    <li><a href="#">My Articles</a></li>
                       <li><a href="/wikis/new">Create a Wiki<a></li>
 	                	<br>
-	                    <li><%= link_to 'Edit Profile', edit_user_registration_path %></a></li>
+	                    <li><%= link_to 'Edit Profile', controller: 'devise/registrations', action: 'edit'%></a></li>
 	                </ul>
 	            </li>
 	        </ul>
