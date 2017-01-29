@@ -2,7 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save do
-    self.access_level = 'standard'
+    unless self.accces_level
+      self.access_level = 'standard'
+    end
   end
 
 

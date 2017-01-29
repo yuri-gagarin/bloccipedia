@@ -1,14 +1,14 @@
 <div class="container">
-  <% @wikis.each do |wiki| %>
-    <div class="row">
-        <div class="col-xs-6 col-sm-3 col-md-2">
-            <p><%= wiki.title %></p>
-            <p><%= wiki.category %></p>
-        </div>
-        <br/>
-        <%= link_to 'Show', wiki_path(wiki) %>
-        <%= link_to 'Edit', edit_wiki_path(wiki) %>
-        <%= link_to 'Delete', delete_wiki_path(wiki) %>
-    </div>
+  <div class='row'>
+    <h2>Wikis: Read and Learn!</h2>
+    <hr>
+    <section id='pinBoot'>
+      <% @wikis.each do |wiki| %>
+        <article class="white-panel"><img src="http://i.imgur.com/sDLIAZD.png" alt="">
+          <h4><%=link_to "#{wiki.title}", wiki_path(wiki.id) %></h4>
+          <p><%= truncate wiki.body, length: 150 %>
+          <%= link_to('read more', wiki_path(wiki)) %>
+          </p>
+        </article>
   <% end %>
 </div>
