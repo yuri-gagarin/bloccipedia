@@ -1,2 +1,21 @@
 <div class='container'>
+  <h2><%= @wiki.title %></h2>
+  <div class='row'>
+    <div class='col-md-offset-8'>
+      <%= button_to('Delete', wiki_path(@wiki), class: 'btn btn-danger btn-block', method: :delete) %>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-8'>
+      <p><%= @wiki.body %></p>
+    </div>
+    <div class='col-md-4 category'>
+      <h4><%= @wiki.category %></h4>
+      <p><%= @wiki.created_at %></p>
+      <p><%= @wiki.updated_at %></p>
+      <p class='test'>Hello there</p>
+    </div>
+  </div>
+
+
 </div>

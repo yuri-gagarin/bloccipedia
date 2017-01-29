@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 # Devise gem for authentication
 gem 'devise'
+#Pundit gem for authorization
+gem 'pundit'
 
 
 group :development, :test do
@@ -45,6 +47,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing'
   gem 'shoulda'
 
 end
