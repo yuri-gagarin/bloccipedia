@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
   def not_authorized
     self.response_body = nil
 
-    flash[:error] = 'You are not authorized to perform this action'
+    flash[:notice] = 'You are not authorized to perform this action'
     redirect_to request.headers['Referer'] || root_path
   end
 
-  
+
 end

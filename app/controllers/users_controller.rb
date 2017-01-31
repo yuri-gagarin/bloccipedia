@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    authorize(current_user)
   end
 
   def delete
@@ -9,10 +10,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    authorize(@user)
   end
 
   def destroy
     @user = User.find(params[:id])
+    authorize(@user)
 
     if @user.destroy
       flash[:notice] = "The user '#{@user.email}' has been successfully deleted"

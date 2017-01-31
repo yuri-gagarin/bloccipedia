@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
 
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @wikis = Wiki.all
@@ -15,6 +15,7 @@ class WikisController < ApplicationController
   end
 
   def create
+
     @wiki = current_user.wikis.new(wiki_params)
 
     if @wiki.save
@@ -24,17 +25,23 @@ class WikisController < ApplicationController
       flash[:alert] = 'There was a problem saving your Wiki. Try again!'
       render(:new)
     end
+
   end
 
   def edit
+
     @wiki = Wiki.find(params[:id])
     authorize(@wiki)
+
   end
 
   def update
+
     @wiki = Wiki.find(params[:id])
     @wiki.assign_attributes(wiki_params)
+
     authorize(@wiki)
+
     if @wiki.save
       flash[:notice] = 'Your wiki was updated'
       redirect_to(wiki_path(@wiki))
@@ -42,6 +49,7 @@ class WikisController < ApplicationController
       flash.now[:alert] = 'Error in updating your wiki'
       render(:edit)
     end
+
   end
 
   def delete
