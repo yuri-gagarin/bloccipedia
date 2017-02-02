@@ -14,12 +14,7 @@ require 'faker'
 end
 
 admin_user = User.first
-admin_user.email = 'ymivanov@icloud.com'
-admin_user.password = 'password'
-admin_user.access_level = 2
-admin_user.skip_confirmation!
-admin_user.save!
-
+admin_user.update_attributes(email: 'ymivanov@icloud.com', password: 'password', access_level: 2)
 
 users = User.all
 
@@ -36,7 +31,7 @@ end
 5.times do
   Wiki.create!(
     title: Faker::Music.instrument,
-    body: Faker::Lorem.paragraph(4),
+    body: Faker::Lorem.paragraph(6),
     private: false,
     category: 'general',
     user_id: users.sample
@@ -46,7 +41,7 @@ end
 5.times do
   Wiki.create!(
     title: Faker::Team.name,
-    body: Faker::Lorem.paragraph(4),
+    body: Faker::Lorem.paragraph(5),
     private: false,
     category: 'sports',
     user_id: users.sample
@@ -56,7 +51,7 @@ end
 5.times do
   Wiki.create!(
     title: Faker::Ancient.hero,
-    body: Faker::Lorem.paragraph(4),
+    body: Faker::Lorem.paragraph(7),
     private: false,
     category: 'history',
     user_id: users.sample

@@ -5,6 +5,11 @@ class ChargesController < ApplicationController
   def new
   end
 
+  def edit
+    @customer = Stripe::Customer.retrieve(current_user.stripe_id)
+    @current_customer = JSON.parse(@customer.to_s)
+  end
+
   def create
 
     @amount = 1499
@@ -15,15 +20,31 @@ class ChargesController < ApplicationController
       plan: '0625'
     )
 
-    current_user.access_level = 1 unless current_user.admin?
+    current_user.update_attributes(access_level: 1)
     current_user.stripe_id = customer.id
-    current_user.save!
 
-    redirect_to(root_path)
+    if current_user.save!
+      flash[:notice] = 'Welcome to premium features. Your 30 day trial starts today!'
+      redirect_to(root_path)
+    end
 
-  rescue Stripe::CardError => e
-    flash[:alert] = e.message
-    redirect_to new_charge_path
+    rescue Stripe::CardError => e
+      flash[:alert] = e.message
+      redirect_to new_charge_path
+  end
+
+  def destroy
+
+    @customer = Stripe::Customer.retrieve(current_user.stripe_id)
+
+    if @customer.delete
+      flash[:notice] = 'Sorry to see you go!'
+      current_user.update_attributes(access_level: 0)
+      redirect_to (root_path)
+    else
+      flash.now[:alert] = 'Something went wrong'
+      render(:edit)
+    end
 
   end
 

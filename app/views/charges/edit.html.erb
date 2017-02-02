@@ -1,0 +1,23 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-6 col-md-offset-3 panel panel-default form-style'>
+      <div class='panel-body'>
+        <h2>Thank You for choosing the premium account</h2>
+        <h3>Hey there <%= current_user.email %></h3>
+        <h4>Some of the Premium benefits:</h4>
+        <ul>
+          <li>Unlimited Private Wikis</li>
+          <li>Collaboration with other users</li>
+          <li>Mucho Karma for supporting the project</li>
+        </ul>
+        <hr>
+        <section class='user-description'>
+          <p>You've been a member since <%= Time.at(@current_customer[:create].to_i).to_date %>
+        </section>
+
+        <%= link_to "Delete My Premium Account", charge_path(current_user.id), class: 'btn btn-danger', method: :delete %> today!
+
+      </div>
+    </div>
+  </div>
+</div>

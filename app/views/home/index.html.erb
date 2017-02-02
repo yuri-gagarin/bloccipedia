@@ -17,15 +17,19 @@
 		<p>Articles will go here.</p>
 	</div>
 	<div class="col-md-6">
-		<% if !current_user || current_user.standard? %>
+		<% if current_user && current_user.admin? %>
+			<h2>Welcome Admin!</h2>
+			<p>Take it easy on those plebs!</p>
+		<% elsif current_user && current_user.premium? %>
+			<h2> Thanks for using WikiPremium! </h2>
+			<p> Your support helps keep this project going! </p>
+			<p> You may cancel anytime. But we love you! Why would you do that? </p>
+			<%= button_to('Edit Subscription', edit_charge_path(current_user.id), class: 'btn btn-primary', method: 'get') %>
+		<% else %>
 			<h2>Get a Premium Account</h2>
 			<h5>Only $15 per month</h5>
 			<p>Sign up for a premium account. Contribute to the knowledge!</p>
 			<%= button_to('Premium Account', new_charge_path, class: 'btn btn-primary', method: 'get') %>
-		<% else %>
-			<h2> Thanks for using WikiPremium! </h2>
-			<p> Your support helps keep this project going! </p>
-			<p> You may cancel anytime. But we love you! Why would you do that? </p>
 		<% end %>
 	</div>
 </div>
