@@ -15,17 +15,15 @@
 .category {
   height: 300px;
   width: 80%;
-  border: 5px;
-  border-style: groove;
+  border-top: 5px;
+  border-top-style: groove;
   margin: 0 auto;
   margin-top: 10px;
 }
-
-.delete-button {
-  margin: 0 auto;
+.wiki-crud-buttons {
+  position: relative;
+  display: inline;
 }
-
-
 
 // css for the index page
 

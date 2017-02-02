@@ -1,10 +1,17 @@
 <div class='container wiki-container'>
-  <h1><%= @wiki.title %></h2>
   <div class='row'>
-    <div class='col-md-offset-8 text-center'>
-      <%= button_to('Delete', wiki_path(@wiki), class: 'btn btn-danger delete-button', method: :delete) %>
+    <div class='col-md-8 text-center'>
+      <h2><%= @wiki.title %></h2>
+    </div>
+    <div class='col-md-4 text-center'>
+      <h4>Editors Tools</h4>
+        <div class='wiki-crud-buttons'>
+          <%= link_to('Delete', wiki_path(@wiki), class: 'btn btn-danger delete-button', method: :delete) %>
+          <%= link_to('Edit', edit_wiki_path(@wiki), class: 'btn btn-warning edit-button', method: :get) %>
+        </div>
     </div>
   </div>
+  <hr>
   <div class='row'>
     <div class='col-md-8'>
       <p><%= @wiki.body %></p>
@@ -12,12 +19,18 @@
     <div class='col-md-4 sidebar'>
       <div class='category'>
         <h2>Category</h2>
-        <p><%= @wiki.category %></p>
+          <p><%= @wiki.category %></p>
         <h4>Created at: </h4>
-        <p><%= @wiki.created_at %></p>
+          <p><%= @wiki.created_at %></p>
         <h4>Updated at: </h4>
-        <p><%= @wiki.updated_at %></p>
-        <p class='test'>Hello there</p>
+          <p><%= @wiki.updated_at %></p>
+        <h4>Private Wiki?</h4>
+          <% if @wiki.private %>
+            <p>"Yes"</p>
+          <% else %>
+            <p>"No"</p>
+          <% end %>
+        <hr>
       </div>
     </div>
   </div>

@@ -24,7 +24,7 @@ users = User.all
     body: Faker::Lorem.paragraph(4),
     private: false,
     category: 'science',
-    user_id: users.sample
+    user_id: users.sample.id
   )
 end
 
@@ -34,7 +34,7 @@ end
     body: Faker::Lorem.paragraph(6),
     private: false,
     category: 'general',
-    user_id: users.sample
+    user_id: users.sample.id
   )
 end
 
@@ -44,7 +44,7 @@ end
     body: Faker::Lorem.paragraph(5),
     private: false,
     category: 'sports',
-    user_id: users.sample
+    user_id: users.sample.id
   )
 end
 
@@ -54,7 +54,7 @@ end
     body: Faker::Lorem.paragraph(7),
     private: false,
     category: 'history',
-    user_id: users.sample
+    user_id: users.sample.id
   )
 end
 
@@ -64,7 +64,7 @@ end
     body: Faker::Lorem.paragraph(4),
     private: false,
     category: 'education',
-    user_id: users.sample
+    user_id: users.sample.id
   )
 end
 

@@ -40,12 +40,24 @@ class ChargesController < ApplicationController
     if @customer.delete
       flash[:notice] = 'Sorry to see you go!'
       current_user.update_attributes(access_level: 0)
+      downgrade_wikis(current_user)
       redirect_to (root_path)
     else
       flash.now[:alert] = 'Something went wrong'
       render(:edit)
     end
 
+  end
+
+  private
+
+  def downgrade_wikis(user)
+    wikis = Wiki.where(user_id: user.id)
+    wikis.each do |wiki|
+      if wiki.private
+        wiki.update_attributes!(private: false)
+      end
+    end
   end
 
 end

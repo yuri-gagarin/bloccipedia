@@ -13,7 +13,7 @@
       <div class="form-group row">
         <%= f.label :body, "Body", class: "col-md-4 control-label" %>
         <div class="col-md-8">
-          <%= f.text_area :body, class: "form-control" %>
+          <%= f.text_area :body, rows: 40, class: "form-control" %>
         </div>
       </div>
       <div class="custom-select row">
@@ -23,7 +23,7 @@
         </div>
       </div>
       <% if higher_level_user? %>
-      <div class="radio row">
+      <div class="form-group row">
         <%= f.label :private, "Private Wiki?", class: "col-md-4 control-label" %>
         <div class="col-md-8">
           <%= f.radio_button :private, 'yes', :checked => true %> Only for me!
@@ -32,8 +32,8 @@
         </div>
       </div>
       <% end %>
-      <div class='row'>
-        <div class='col-md-8'>
+      <div class='form-group row'>
+        <div class='col-md-8 col-md-offset-4'>
           <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
         </div>
       </div>
