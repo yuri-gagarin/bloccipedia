@@ -6,10 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   </head>
 
   <body>
-	<nav role="navigation" class="navbar navbar-inverse">
+	<nav role="navigation" class="navbar">
 	    <div class="navbar-header">
 	        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
 	            <span class="sr-only">Toggle navigation</span>
@@ -62,6 +64,7 @@
 	        </ul>
 	    </div>
 	</nav>
+  <hr>
 	<% if flash[:notice] %>
 	<div class='alert alert-success alert-dismissable'>
     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -75,6 +78,16 @@
   </div>
   <% end %>
 
-    <%= yield %>
+  <%= yield %>
+
+  <hr>
+    <div class="text-center center-block">
+      <p class="txt-railway">- Contact Us! Or folow us on social media! -</p>
+      <br />
+        <a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	      <a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+	      <a href="#"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+	      <a href="#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+    </div>
   </body>
 </html>

@@ -5,7 +5,7 @@
 	<% if user_signed_in? %>
 		<p> Welcome <%= current_user.email %></p>
 	<% else %>
-		<p> 
+		<p>
 		<%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-sucess' %> today!
 		</p>
 	<% end %>
@@ -17,7 +17,15 @@
 		<p>Articles will go here.</p>
 	</div>
 	<div class="col-md-6">
-		<h2>Get a Premium Account</h2>
-		<p>Sign up for a premium account. Contribute to the knowledge!</p>
+		<% if !current_user || current_user.standard? %>
+			<h2>Get a Premium Account</h2>
+			<h5>Only $15 per month</h5>
+			<p>Sign up for a premium account. Contribute to the knowledge!</p>
+			<%= button_to('Premium Account', new_charge_path, class: 'btn btn-primary', method: 'get') %>
+		<% else %>
+			<h2> Thanks for using WikiPremium! </h2>
+			<p> Your support helps keep this project going! </p>
+			<p> You may cancel anytime. But we love you! Why would you do that? </p>
+		<% end %>
 	</div>
 </div>
