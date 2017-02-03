@@ -1,5 +1,7 @@
 class WikisController < ApplicationController
 
+  require 'redcarpet'
+
   before_action :authenticate_user!
 
   def index
