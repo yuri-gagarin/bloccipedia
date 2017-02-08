@@ -37,3 +37,10 @@
       </div>
     </div>
  <% end %>
+ <div class="form-group row">
+   <div class="col-md-8 col-md-offset-4">
+     <%= button_to "Add Collaborator", new_wiki_collaborator_path(@wiki), class: "btn btn-primary", method: :get %>
+     <%= button_to "Remove Collaborator", wiki_collaborator_path(@wiki), class: "btn btn-primary", method: :get %>
+
+   </div>
+ </div>

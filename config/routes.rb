@@ -8,9 +8,10 @@ Rails.application.routes.draw do
     member do
       get :delete
     end
+    resources :collaborators, only: [:new, :create, :show, :destroy]
   end
 
-  resources :charges 
+  resources :charges
 
 
 
