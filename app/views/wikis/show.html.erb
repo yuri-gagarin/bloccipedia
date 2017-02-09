@@ -30,7 +30,15 @@
           <% else %>
             <p>"No"</p>
           <% end %>
-        <hr>
+      </div>
+      <hr>
+      <div class='col-md-4 sidebar'>
+        <div class="collaborators">
+          <% @collaborators.each do |c| %>
+            <p><%= c.user.email %></p>
+            <p><%= link_to("Remove Collaborator", wiki_collaborator_path(@wiki.id, c.id), method: :delete) %></p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

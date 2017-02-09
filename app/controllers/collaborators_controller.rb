@@ -13,8 +13,7 @@ class CollaboratorsController < ApplicationController
 
     if @collaborator.save
       flash[:notice] = "Collaborator was successfully saved"
-      redirect_to(@wiki)
-
+      redirect_to(edit_wiki_path(@wiki.id))
     else
       flash[:alert] = "Could not save collaborator"
       redirect_to(@wiki)
@@ -23,9 +22,9 @@ class CollaboratorsController < ApplicationController
 
   def destroy
     @wiki = Wiki.find(params[:wiki_id])
-    @collaborator = Collaboration.find(params[:id])
+    @collaborator = Collaborator.find(params[:id])
 
-    if @collaboration.destroy
+    if @collaborator.destroy
       flash[:notice] = "#{collaborator.user.email} was successfully removed."
       redirect_to(@wiki)
     else

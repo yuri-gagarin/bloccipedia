@@ -1,24 +1,33 @@
 // Place all the styles related to the wikis controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.category {
-  text-align: center;
-  color: blue;
-}
+
 
 .wiki-container {
   height: auto;
   border-top: 5px;
   border-top-style: groove;
 }
+// css for sidebar in wiki view
 
 .category {
-  height: 300px;
+  height: auto;
   width: 80%;
   border-top: 5px;
   border-top-style: groove;
   margin: 0 auto;
   margin-top: 10px;
+  text-align: center;
+  color: grey;
+}
+
+.collaborators {
+  height: auto;
+  width: 80%;
+  border-top: 3px;
+  border-top-style: groove;
+  margin: 0 auto;
+  text-align: center;
 }
 .wiki-crud-buttons {
   position: relative;
@@ -27,7 +36,7 @@
 
 // css for the index page
 
-ody {
+body {
  background-color:#eee;
 }
 
