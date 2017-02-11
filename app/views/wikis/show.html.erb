@@ -31,17 +31,16 @@
             <p>"No"</p>
           <% end %>
       </div>
-      <hr>
-      <div class='col-md-4 sidebar'>
-        <div class="collaborators">
-          <% @collaborators.each do |c| %>
-            <p><%= c.user.email %></p>
-            <p><%= link_to("Remove Collaborator", wiki_collaborator_path(@wiki.id, c.id), method: :delete) %></p>
-          <% end %>
-        </div>
+    </div>
+    <hr>
+    <div class='col-md-4 pull-right sidebar'>
+      <div class="collaborators">
+        <h3>collaborators</h3>
+        <% @collaborators.each do |c| %>
+          <p><%= c.user.email %></p>
+          <p><%= link_to("Remove Collaborator", wiki_collaborator_path(@wiki.id, c.id), method: :delete) %></p>
+        <% end %>
       </div>
     </div>
   </div>
-
-
 </div>

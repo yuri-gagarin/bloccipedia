@@ -64,6 +64,6 @@ class WikiPolicy < ApplicationPolicy
 private
 
   def correct_user
-    user.id == wiki.user_id
+    user.id == wiki.user_id || wiki.collaborators.include?(user)
   end
 end

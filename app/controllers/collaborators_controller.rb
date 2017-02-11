@@ -1,15 +1,19 @@
 class CollaboratorsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def new
     @wiki = Wiki.find(params[:wiki_id])
     @collaborator = @wiki.collaborators.new
     @user = current_user
+    authorize(@collaborator)
   end
 
 
   def create
     @wiki = Wiki.find(params[:wiki_id])
     @collaborator = @wiki.collaborators.new(collaborator_params)
+    authorize(@collaborator)
 
     if @collaborator.save
       flash[:notice] = "Collaborator was successfully saved"
@@ -23,9 +27,10 @@ class CollaboratorsController < ApplicationController
   def destroy
     @wiki = Wiki.find(params[:wiki_id])
     @collaborator = Collaborator.find(params[:id])
+    authorize(@collaborator)
 
     if @collaborator.destroy
-      flash[:notice] = "#{collaborator.user.email} was successfully removed."
+      flash[:notice] = "#{@collaborator.user.email} was successfully removed."
       redirect_to(@wiki)
     else
       flash[:error] = "Could not remove the collaborator"

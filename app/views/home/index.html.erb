@@ -1,4 +1,5 @@
 <br>
+<div class="container">
 <div class="jumbotron">
 	<h1>Bloccipedia</h1>
 	<p>Create! Read! Learn!</p>
@@ -10,11 +11,13 @@
 		</p>
 	<% end %>
 </div>
-
+</div>
+<div class="container">
 <div class="row index-info">
 	<div class="col-md-6">
-		<h2>Go to Articles</h2>
-		<p>Articles will go here.</p>
+		<h2><%= @random_wiki.title %></h2>
+		<p><%= truncate @random_wiki.body, length: 100 %></p>
+		<%= link_to("Read More", wiki_path(@random_wiki.id)) %>
 	</div>
 	<div class="col-md-6">
 		<% if current_user && current_user.admin? %>
@@ -32,4 +35,5 @@
 			<%= button_to('Premium Account', new_charge_path, class: 'btn btn-primary', method: 'get') %>
 		<% end %>
 	</div>
+</div>
 </div>
